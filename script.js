@@ -1,10 +1,35 @@
+// ══ Page loader — quiet curtain before the exhibition opens ══
+window.addEventListener("load", () => {
+  const loader = document.getElementById("page-loader");
+  if (!loader) return;
+  window.setTimeout(() => {
+    loader.classList.add("page-loader--hide");
+    window.setTimeout(() => {
+      loader.remove();
+    }, 600);
+  }, 1100);
+});
+
 // ══ Navigation — Scroll Behavior & Mobile Toggle ══
 document.addEventListener("DOMContentLoaded", () => {
+  /* Portfolio: slight random rotations — works on a wall, not in a template grid */
+  const tiltAngles = [-1.2, -0.8, -0.4, 0.2, 0.6, 1.0, 1.2, -0.6, 0.8, -1.0];
+  document.querySelectorAll(".portfolio__item.reveal--place").forEach((item, i) => {
+    item.style.setProperty("--random-rotation", `${tiltAngles[i % tiltAngles.length]}deg`);
+  });
+
+  /* Scroll reveals: stagger so the page breathes in sequence */
+  document.querySelectorAll("[data-reveal]").forEach((el, i) => {
+    el.style.setProperty("--reveal-delay", `${i * 120}ms`);
+  });
+
   const siteHeader = document.getElementById("site-header");
   const navToggle = document.getElementById("nav-toggle");
   const navMenu = document.getElementById("nav-menu");
   const navOverlay = document.getElementById("nav-overlay");
-  const navLinks = document.querySelectorAll(".nav__link");
+  const navLinks = document.querySelectorAll(".nav__link[data-section]");
+  const allNavLinks = document.querySelectorAll(".nav__link");
+  const sectionIds = ["about", "disciplines", "portfolio", "journal", "contact"];
 
   const closeMobileNav = () => {
     siteHeader.classList.remove("is-open");
@@ -31,15 +56,47 @@ document.addEventListener("DOMContentLoaded", () => {
     siteHeader.classList.toggle("is-scrolled", window.scrollY > 80);
   };
 
+  const updateNavActive = () => {
+    const mid = window.innerHeight * 0.5;
+    let activeId = "";
+    if (window.scrollY < 72) {
+      navLinks.forEach((l) => l.classList.remove("is-active"));
+      return;
+    }
+    for (let s = 0; s < sectionIds.length; s += 1) {
+      const id = sectionIds[s];
+      const el = document.getElementById(id);
+      if (!el) continue;
+      const r = el.getBoundingClientRect();
+      if (r.top <= mid && r.bottom >= mid) {
+        activeId = id;
+        break;
+      }
+    }
+    if (
+      !activeId &&
+      window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 96
+    ) {
+      activeId = "contact";
+    }
+    navLinks.forEach((link) => {
+      const sec = link.getAttribute("data-section");
+      link.classList.toggle("is-active", sec === activeId);
+    });
+  };
+
   window.addEventListener("scroll", onScrollNav, { passive: true });
+  window.addEventListener("scroll", updateNavActive, { passive: true });
   window.addEventListener(
     "resize",
     () => {
       if (window.matchMedia("(min-width: 768px)").matches) closeMobileNav();
+      updateNavActive();
     },
     { passive: true }
   );
   onScrollNav();
+  updateNavActive();
 
   if (navToggle && navMenu) {
     navToggle.addEventListener("click", () => {
@@ -52,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
     navOverlay.addEventListener("click", closeMobileNav);
   }
 
-  navLinks.forEach((link) => {
+  allNavLinks.forEach((link) => {
     link.addEventListener("click", () => {
       if (window.matchMedia("(max-width: 767px)").matches) closeMobileNav();
     });

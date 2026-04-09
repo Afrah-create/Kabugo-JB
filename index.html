@@ -13,6 +13,13 @@
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
+  <div id="page-loader" class="page-loader" aria-hidden="true">
+    <div id="loader-logo" class="page-loader__logo">
+      <img src="images/Logo.jpeg" width="160" height="48" alt="" decoding="async" />
+    </div>
+    <div id="loader-line" class="page-loader__line" aria-hidden="true"></div>
+  </div>
+
   <div id="scroll-progress" class="scroll-progress" aria-hidden="true">
     <div class="scroll-progress__track">
       <div id="scroll-progress-bar" class="scroll-progress__bar"></div>
@@ -32,11 +39,11 @@
       </button>
       <div class="nav__overlay" id="nav-overlay" aria-hidden="true"></div>
       <ul class="nav__menu" id="nav-menu">
-        <li class="nav__item"><a class="nav__link" href="#about">About</a></li>
-        <li class="nav__item"><a class="nav__link" href="#disciplines">Practice</a></li>
-        <li class="nav__item"><a class="nav__link" href="#portfolio">Work</a></li>
-        <li class="nav__item"><a class="nav__link" href="#journal">Journal</a></li>
-        <li class="nav__item"><a class="nav__link" href="#contact">Contact</a></li>
+        <li class="nav__item"><a class="nav__link" href="#about" data-section="about">About</a></li>
+        <li class="nav__item"><a class="nav__link" href="#disciplines" data-section="disciplines">Practice</a></li>
+        <li class="nav__item"><a class="nav__link" href="#portfolio" data-section="portfolio">Work</a></li>
+        <li class="nav__item"><a class="nav__link" href="#journal" data-section="journal">Journal</a></li>
+        <li class="nav__item"><a class="nav__link" href="#contact" data-section="contact">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -46,29 +53,44 @@
       <div class="hero__media" aria-hidden="true">
         <img class="hero__img" src="images/Project1.jpeg" alt="" decoding="async" />
         <div class="hero__veil"></div>
+        <div class="hero__canvas-wash" aria-hidden="true"></div>
       </div>
       <div class="hero__inner">
-        <p class="hero__eyebrow hero-reveal">JBALLER CREATIONZ</p>
-        <h1 class="hero__title hero-reveal">Kabugo John Bosco</h1>
-        <p class="hero__tagline hero-reveal">Crafting Creativity</p>
-        <p class="hero__lead hero-reveal">Ugandan visual artist exploring drawing, sculpture, and photography — identity, emotion, and stories told through line, form, and light.</p>
-        <a class="hero__cta hero-reveal" href="#portfolio">View selected work</a>
+        <div class="hero__layout">
+          <div class="hero__content">
+            <p class="hero__eyebrow hero-reveal">JBALLER CREATIONZ</p>
+            <h1 class="hero__title hero-reveal">Kabugo John <span class="hero__title-accent">Bosco</span></h1>
+            <p class="hero__tagline hero-reveal">Crafting Creativity</p>
+            <p class="hero__lead hero-reveal">Ugandan visual artist exploring drawing, sculpture, and photography — identity, emotion, and stories told through line, form, and light.</p>
+            <a class="hero__cta hero-reveal" href="#portfolio">View selected work</a>
+          </div>
+          <figure class="hero__portrait hero-portrait hero-reveal" aria-label="Portrait of the artist">
+            <div class="hero-portrait__shape">
+              <img class="hero-portrait__img" src="images/profile.jpeg" width="480" height="600" alt="Portrait photograph of Kabugo John Bosco, visual artist" decoding="async" />
+            </div>
+          </figure>
+        </div>
       </div>
     </section>
 
     <section class="about section" id="about" aria-labelledby="about-heading">
+      <div class="about__wash" aria-hidden="true"></div>
       <div class="section__inner about__grid">
         <div class="about__visual reveal" data-reveal>
-          <div class="about__frame">
-            <div class="about__frame-inner">
-              <img src="images/Logo.jpeg" alt="" width="280" height="120" decoding="async" role="presentation" />
+          <div class="about__frame about-portrait">
+            <div class="about-portrait__mount">
+              <div class="about-portrait__inner">
+                <img class="about-portrait__img" src="images/profile.jpeg" width="400" height="500" alt="Portrait photograph of Kabugo John Bosco in the studio" decoding="async" />
+              </div>
             </div>
             <p class="about__frame-caption">Studio &amp; exhibition · Kampala</p>
           </div>
         </div>
         <div class="about__copy">
+          <p class="section__kicker reveal" data-reveal><span class="section__kicker-mark" aria-hidden="true"></span> About</p>
           <h2 id="about-heading" class="section__title reveal" data-reveal>About the artist</h2>
           <p class="about__text reveal" data-reveal>Kabugo John Bosco is a Ugandan visual artist whose practice explores drawing, sculpture, and photography as interconnected forms of expression. His work focuses on human identity, emotion, and visual storytelling through careful observation and creative interpretation.</p>
+          <p class="about__pullquote reveal" data-reveal>I am interested in how visual art can communicate emotion, cultural narratives, and personal stories that resonate with diverse audiences.</p>
           <p class="about__text reveal" data-reveal>Bosco studied Fine Art at the <strong>Margareta Trowell School of Industrial and Fine Arts at Makerere University</strong>, where he built strong foundations in drawing, painting, sculpture, and visual design. Through portrait drawing and figurative studies, he investigates human expression and character, using line, tone, and form to reveal emotional depth. His sculptural works extend these explorations into three-dimensional space; photography serves as both documentation and inquiry into everyday life.</p>
           <blockquote class="about__quote reveal" data-reveal>
             <p>“Ultimately, my work seeks to demonstrate that art is not only a form of expression but also a powerful tool for storytelling, identity, and transformation.”</p>
@@ -98,6 +120,7 @@
 
     <section class="disciplines section section--alt" id="disciplines" aria-labelledby="disciplines-heading">
       <div class="section__inner">
+        <p class="section__kicker section__kicker--center reveal" data-reveal><span class="section__kicker-mark" aria-hidden="true"></span> Practice</p>
         <h2 id="disciplines-heading" class="section__title section__title--center reveal" data-reveal>Practice &amp; disciplines</h2>
         <p class="section__lede section__lede--center reveal" data-reveal>From studio walls to schools and brands — a practice rooted in observation, material, and design.</p>
         <ul class="discipline-list">
@@ -149,6 +172,7 @@
 
     <section class="portfolio section" id="portfolio" aria-labelledby="portfolio-heading">
       <div class="section__inner">
+        <p class="section__kicker section__kicker--center reveal" data-reveal><span class="section__kicker-mark" aria-hidden="true"></span> Work</p>
         <h2 id="portfolio-heading" class="section__title section__title--center reveal" data-reveal>Selected work</h2>
         <p class="section__lede section__lede--center reveal" data-reveal>Studio collateral and identity — the same care given to canvas and wall, applied to how the work meets clients and community.</p>
         <div class="portfolio__filters reveal" data-reveal role="toolbar" aria-label="Filter portfolio">
@@ -158,48 +182,48 @@
           <button type="button" class="filter-btn" data-filter="collateral">Collateral</button>
         </div>
         <ul class="portfolio__grid" id="portfolio-grid">
-          <li class="portfolio__item portfolio__item--featured reveal" data-reveal data-category="studio" data-src="images/Project1.jpeg" data-title="Creative proposal &amp; studio overview" data-description="Branded proposal presenting JBALLER CREATIONZ — fine art, portraits, murals, and graphic design — with painterly headers in navy, gold, and orange.">
+          <li class="portfolio__item portfolio__item--featured reveal reveal--place" data-reveal data-category="studio" data-src="images/Project1.jpeg" data-title="Creative proposal &amp; studio overview" data-description="Branded proposal presenting JBALLER CREATIONZ — fine art, portraits, murals, and graphic design — with painterly headers in navy, gold, and orange.">
             <button type="button" class="portfolio__trigger" aria-label="Open Creative proposal and studio overview in lightbox">
               <img src="images/Project1.jpeg" alt="JBALLER CREATIONZ creative proposal document with brushstroke headers and portfolio imagery" width="800" height="600" decoding="async" loading="lazy" />
               <span class="portfolio__meta">
-                <span class="portfolio__cat">Studio overview</span>
                 <span class="portfolio__name">Creative proposal</span>
+                <span class="portfolio__line"><span class="portfolio__em" aria-hidden="true">—</span> Studio overview</span>
               </span>
             </button>
           </li>
-          <li class="portfolio__item reveal" data-reveal data-category="collateral" data-src="images/project2.jpeg" data-title="Branded delivery note" data-description="Client-facing delivery stationery with deep navy bands, orange accents, and watercolor washes echoing the studio palette.">
+          <li class="portfolio__item reveal reveal--place" data-reveal data-category="collateral" data-src="images/project2.jpeg" data-title="Branded delivery note" data-description="Client-facing delivery stationery with deep navy bands, orange accents, and watercolor washes echoing the studio palette.">
             <button type="button" class="portfolio__trigger" aria-label="Open Branded delivery note in lightbox">
               <img src="images/project2.jpeg" alt="JBALLER CREATIONZ delivery note with navy header and watercolor textures" width="800" height="600" decoding="async" loading="lazy" />
               <span class="portfolio__meta">
-                <span class="portfolio__cat">Collateral</span>
                 <span class="portfolio__name">Delivery note</span>
+                <span class="portfolio__line"><span class="portfolio__em" aria-hidden="true">—</span> Collateral</span>
               </span>
             </button>
           </li>
-          <li class="portfolio__item reveal" data-reveal data-category="collateral" data-src="images/Project3.jpeg" data-title="Invoice design" data-description="Structured invoice layout with teal and orange headers, script tagline, and clear typography for professional art transactions.">
+          <li class="portfolio__item reveal reveal--place" data-reveal data-category="collateral" data-src="images/Project3.jpeg" data-title="Invoice design" data-description="Structured invoice layout with teal and orange headers, script tagline, and clear typography for professional art transactions.">
             <button type="button" class="portfolio__trigger" aria-label="Open Invoice design in lightbox">
               <img src="images/Project3.jpeg" alt="JBALLER CREATIONZ invoice with teal orange branding and watercolor splash" width="800" height="600" decoding="async" loading="lazy" />
               <span class="portfolio__meta">
-                <span class="portfolio__cat">Collateral</span>
                 <span class="portfolio__name">Invoice</span>
+                <span class="portfolio__line"><span class="portfolio__em" aria-hidden="true">—</span> Collateral</span>
               </span>
             </button>
           </li>
-          <li class="portfolio__item reveal" data-reveal data-category="identity" data-src="images/Project4.jpeg" data-title="Business card &amp; visual identity" data-description="Printed card with palette logo, flame-tipped brush, and corner washes in teal, orange, and gold — Crafting Creativity in script.">
+          <li class="portfolio__item reveal reveal--place" data-reveal data-category="identity" data-src="images/Project4.jpeg" data-title="Business card &amp; visual identity" data-description="Printed card with palette logo, flame-tipped brush, and corner washes in teal, orange, and gold — Crafting Creativity in script.">
             <button type="button" class="portfolio__trigger" aria-label="Open Business card and visual identity in lightbox">
               <img src="images/Project4.jpeg" alt="JBALLER CREATIONZ business card with watercolor corners and logo" width="800" height="600" decoding="async" loading="lazy" />
               <span class="portfolio__meta">
-                <span class="portfolio__cat">Identity</span>
                 <span class="portfolio__name">Business card</span>
+                <span class="portfolio__line"><span class="portfolio__em" aria-hidden="true">—</span> Identity</span>
               </span>
             </button>
           </li>
-          <li class="portfolio__item reveal" data-reveal data-category="collateral" data-src="images/Project5.jpeg" data-title="Receipt template" data-description="Receipt system with teal bars, orange highlights, and tactile watercolor corners — consistent with studio documentation.">
+          <li class="portfolio__item reveal reveal--place" data-reveal data-category="collateral" data-src="images/Project5.jpeg" data-title="Receipt template" data-description="Receipt system with teal bars, orange highlights, and tactile watercolor corners — consistent with studio documentation.">
             <button type="button" class="portfolio__trigger" aria-label="Open Receipt template in lightbox">
               <img src="images/Project5.jpeg" alt="JBALLER CREATIONZ receipt template with teal and orange design" width="800" height="600" decoding="async" loading="lazy" />
               <span class="portfolio__meta">
-                <span class="portfolio__cat">Collateral</span>
                 <span class="portfolio__name">Receipt</span>
+                <span class="portfolio__line"><span class="portfolio__em" aria-hidden="true">—</span> Collateral</span>
               </span>
             </button>
           </li>
@@ -209,6 +233,7 @@
 
     <section class="journal section section--alt" id="journal" aria-labelledby="journal-heading">
       <div class="section__inner">
+        <p class="section__kicker section__kicker--center reveal" data-reveal><span class="section__kicker-mark" aria-hidden="true"></span> Journal</p>
         <h2 id="journal-heading" class="section__title section__title--center reveal" data-reveal>Journal</h2>
         <p class="section__lede section__lede--center reveal" data-reveal>Notes from the studio, the wall, and the exhibition floor.</p>
         <div class="journal__grid">
@@ -252,7 +277,11 @@
     <section class="contact section" id="contact" aria-labelledby="contact-heading">
       <div class="section__inner contact__grid">
         <div class="contact__intro reveal" data-reveal>
+          <span class="contact__flourish" aria-hidden="true">“</span>
+          <p class="section__kicker section__kicker--contact"><span class="section__kicker-mark" aria-hidden="true"></span> Reach out</p>
           <h2 id="contact-heading" class="section__title">Let’s work together</h2>
+          <hr class="contact__rule" />
+          <p class="contact__note">I aim to create artworks that inspire reflection, encourage conversation, and celebrate the power of artistic imagination.</p>
           <p class="contact__lede">Commissions, murals, teaching collaborations, and design projects — reach out with your idea. Based in <strong>Kampala, Uganda</strong>; JBALLER AVENUES, Makindye, Salaama Road.</p>
           <ul class="contact__details">
             <li><a href="tel:+256782172555">+256 782 172 555</a> · <a href="tel:+256701172555">+256 701 172 555</a></li>
