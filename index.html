@@ -120,51 +120,71 @@
 
     <section class="disciplines section section--alt" id="disciplines" aria-labelledby="disciplines-heading">
       <div class="section__inner">
-        <p class="section__kicker section__kicker--center reveal" data-reveal><span class="section__kicker-mark" aria-hidden="true"></span> Practice</p>
-        <h2 id="disciplines-heading" class="section__title section__title--center reveal" data-reveal>Practice &amp; disciplines</h2>
-        <p class="section__lede section__lede--center reveal" data-reveal>From studio walls to schools and brands — a practice rooted in observation, material, and design.</p>
-        <ul class="discipline-list">
-          <li class="discipline-card reveal" data-reveal>
-            <div class="discipline-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"><path d="M8 40c8-6 14-14 18-24M14 12l22 22M26 8l14 14"/></svg>
+        <header class="disciplines-header section-header">
+          <p class="section__kicker section__kicker--center disciplines-header__kicker">
+            <span class="section__kicker-mark disciplines-header__kicker-dot" aria-hidden="true"></span>
+            <span class="disciplines-header__kicker-text">Practice</span>
+          </p>
+          <h2 id="disciplines-heading" class="section__title section__title--center disciplines-header__title">
+            <span class="disciplines-header__title-left">Practice &amp;</span>
+            <span class="disciplines-header__title-right">disciplines</span>
+          </h2>
+          <p class="section__lede section__lede--center disciplines-header__intro">From studio walls to schools and brands — a practice rooted in observation, material, and design.</p>
+        </header>
+        <ul class="discipline-list disciplines-grid">
+          <li class="discipline-card" data-discipline="drawing" tabindex="0">
+            <div class="discipline-card-inner">
+              <div class="discipline-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"><path d="M8 40c8-6 14-14 18-24M14 12l22 22M26 8l14 14"/></svg>
+              </div>
+              <h3 class="discipline-card__title">Drawing &amp; portraiture</h3>
+              <p class="discipline-card__text">Figurative studies and commissioned portraits in charcoal, pencil, and mixed drawing media.</p>
             </div>
-            <h3 class="discipline-card__title">Drawing &amp; portraiture</h3>
-            <p class="discipline-card__text">Figurative studies and commissioned portraits in charcoal, pencil, and mixed drawing media.</p>
           </li>
-          <li class="discipline-card reveal" data-reveal>
-            <div class="discipline-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"><path d="M24 6v36M12 14h24M10 34h28M16 22h16"/></svg>
+          <li class="discipline-card" data-discipline="sculpture" tabindex="0">
+            <div class="discipline-card-inner">
+              <div class="discipline-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"><path d="M24 6v36M12 14h24M10 34h28M16 22h16"/></svg>
+              </div>
+              <h3 class="discipline-card__title">Sculpture</h3>
+              <p class="discipline-card__text">Three-dimensional forms that extend line and volume into space and presence.</p>
             </div>
-            <h3 class="discipline-card__title">Sculpture</h3>
-            <p class="discipline-card__text">Three-dimensional forms that extend line and volume into space and presence.</p>
           </li>
-          <li class="discipline-card reveal" data-reveal>
-            <div class="discipline-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"><rect x="10" y="14" width="28" height="22" rx="2"/><circle cx="24" cy="25" r="6"/><path d="M18 40h12"/></svg>
+          <li class="discipline-card" data-discipline="photography" tabindex="0">
+            <div class="discipline-card-inner">
+              <div class="discipline-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"><rect x="10" y="14" width="28" height="22" rx="2"/><circle cx="24" cy="25" r="6"/><path d="M18 40h12"/></svg>
+              </div>
+              <h3 class="discipline-card__title">Photography</h3>
+              <p class="discipline-card__text">Composition and narrative — documenting life and reframing the everyday.</p>
             </div>
-            <h3 class="discipline-card__title">Photography</h3>
-            <p class="discipline-card__text">Composition and narrative — documenting life and reframing the everyday.</p>
           </li>
-          <li class="discipline-card reveal" data-reveal>
-            <div class="discipline-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"><path d="M8 36L18 10l8 16 6-10 8 20"/><path d="M6 38h36"/></svg>
+          <li class="discipline-card" data-discipline="painting" tabindex="0">
+            <div class="discipline-card-inner">
+              <div class="discipline-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"><path d="M8 36L18 10l8 16 6-10 8 20"/><path d="M6 38h36"/></svg>
+              </div>
+              <h3 class="discipline-card__title">Painting</h3>
+              <p class="discipline-card__text">Oil and acrylic painting alongside expressive colour and surface exploration.</p>
             </div>
-            <h3 class="discipline-card__title">Painting</h3>
-            <p class="discipline-card__text">Oil and acrylic painting alongside expressive colour and surface exploration.</p>
           </li>
-          <li class="discipline-card reveal" data-reveal>
-            <div class="discipline-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"><path d="M6 42V18l10-8 10 8v24"/><path d="M16 42V28h16v14"/><path d="M26 22h12v8"/></svg>
+          <li class="discipline-card" data-discipline="murals" tabindex="0">
+            <div class="discipline-card-inner">
+              <div class="discipline-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"><path d="M6 42V18l10-8 10 8v24"/><path d="M16 42V28h16v14"/><path d="M26 22h12v8"/></svg>
+              </div>
+              <h3 class="discipline-card__title">Murals</h3>
+              <p class="discipline-card__text">Large-scale wall work for schools, organisations, and public-facing spaces.</p>
             </div>
-            <h3 class="discipline-card__title">Murals</h3>
-            <p class="discipline-card__text">Large-scale wall work for schools, organisations, and public-facing spaces.</p>
           </li>
-          <li class="discipline-card reveal" data-reveal>
-            <div class="discipline-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"><rect x="8" y="10" width="32" height="28" rx="2"/><path d="M14 18h20M14 24h12M14 30h20"/></svg>
+          <li class="discipline-card" data-discipline="graphic-design" tabindex="0">
+            <div class="discipline-card-inner">
+              <div class="discipline-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"><rect x="8" y="10" width="32" height="28" rx="2"/><path d="M14 18h20M14 24h12M14 30h20"/></svg>
+              </div>
+              <h3 class="discipline-card__title">Graphic design</h3>
+              <p class="discipline-card__text">Logos, branding, and visual systems through JBALLER CREATIONZ.</p>
             </div>
-            <h3 class="discipline-card__title">Graphic design</h3>
-            <p class="discipline-card__text">Logos, branding, and visual systems through JBALLER CREATIONZ.</p>
           </li>
         </ul>
       </div>
