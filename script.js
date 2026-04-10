@@ -202,6 +202,9 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("resize", assignColumnDelays, { passive: true });
 
     // -- IntersectionObserver — section header (brush + converging title)
+    // Observe the header block, not the whole section: on small viewports the section
+    // is much taller than the screen, so intersectionRatio for #disciplines can stay
+    // below 0.2 until the user has scrolled past the heading (which stayed opacity:0).
     if (disciplinesHeader) {
       if (reduceMotion) {
         disciplinesHeader.classList.add("disciplines-header-visible");
@@ -209,15 +212,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const headerObs = new IntersectionObserver(
           (entries, obs) => {
             entries.forEach((entry) => {
-              if (entry.isIntersecting && entry.intersectionRatio >= 0.2) {
+              if (entry.isIntersecting) {
                 disciplinesHeader.classList.add("disciplines-header-visible");
-                obs.unobserve(disciplinesSection);
+                obs.unobserve(entry.target);
               }
             });
           },
-          { threshold: [0, 0.2, 0.4, 0.6, 1] }
+          { threshold: 0.05, rootMargin: "0px" }
         );
-        headerObs.observe(disciplinesSection);
+        headerObs.observe(disciplinesHeader);
       }
     }
 
@@ -245,7 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
           observer.unobserve(entry.target);
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -6% 0px" }
+      { threshold: 0.06, rootMargin: "0px 0px 12% 0px" }
     );
     disciplineCards.forEach((card) => {
       if (reduceMotion) {
