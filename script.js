@@ -317,6 +317,21 @@ document.addEventListener("DOMContentLoaded", () => {
     lightboxContainer.addEventListener("click", (e) => e.stopPropagation());
   }
 
+  // ══ Journal — Read more ══
+  document.querySelectorAll(".journal-card__read").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const card = btn.closest(".journal-card");
+      const more = card?.querySelector(".journal-card__more");
+      if (!card || !more) return;
+      const opening = more.hidden;
+      more.hidden = !opening;
+      const isOpen = !more.hidden;
+      btn.setAttribute("aria-expanded", String(isOpen));
+      btn.textContent = isOpen ? "Read less" : "Read more";
+    });
+  });
+
   // ══ Contact — Form Handler ══
   const contactForm = document.getElementById("contact-form");
   const formSuccess = document.getElementById("form-success");

@@ -1393,22 +1393,53 @@ h3,
   font-size: 0.9375rem;
   color: var(--color-text-muted);
   flex: 1;
-  margin-bottom: 1rem;
+  margin-bottom: 0.65rem;
 }
 
-.journal-card__link {
+.journal-card__more {
+  margin-bottom: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--color-border);
+  display: grid;
+  gap: 0.65rem;
+}
+
+.journal-card__more[hidden] {
+  display: none !important;
+}
+
+.journal-card__more p {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+.journal-card__read {
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.875rem;
   color: var(--color-accent-dark);
   text-decoration: none;
   align-self: flex-start;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0 0 2px;
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
 }
 
-.journal-card__link::after {
+.journal-card__read::after {
   content: " →";
 }
 
-.journal-card:hover .journal-card__link {
+.journal-card__read:hover,
+.journal-card__read:focus-visible {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+.journal-card:hover .journal-card__read {
   color: var(--color-accent);
 }
 
